@@ -1,18 +1,22 @@
-name: my first workflow manually
-on: workflow_dispatch                      
+name: Creation of Dependent jobs 
+on:
+  push:
+    branches:
+      - main 
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute a linux command
-        run: echo "Hello All"
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute set of commands
-        run: |
-          hostname -s
-          echo "Bye Bye"
-
-            
-        
+  reviewJob:
+   runs-on: ubuntu-latest
+   steps:
+    - name: review the code 
+      run: echo "review the code"
+  buildJob:
+   runs-on: ubuntu-latest
+   steps:
+    - name: build the code 
+      run: echo "Build the code"
+  deployJob:
+   needs: buildJob
+   runs-on: ubuntu-latest
+   steps:
+    - name: Deploy the code 
+      run: echo "Deploying..."

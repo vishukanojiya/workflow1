@@ -1,3 +1,4 @@
+---
 name: my first workflow manually
 on: workflow_dispatch
 jobs: 

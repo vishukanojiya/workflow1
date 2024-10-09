@@ -1,19 +1,18 @@
----
 name: my first workflow manually
-on: workflow_dispatch
-jobs: 
+on: workflow_dispatch                      
+jobs:
   job1:
     runs-on: ubuntu-latest
-    steps: 
-      - name: Execute a Linux command
+    steps:
+      - name: Execute a linux command
         run: echo "Hello All"
-
   job2:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Execute set of commands
-        run:   |
-            hostname -s
-            echo "command1"
+        run: |
+          hostname -s
+          echo "Bye Bye"
+
             
         
